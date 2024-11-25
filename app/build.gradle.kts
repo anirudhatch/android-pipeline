@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.smitcoderx.learn.androidci_cd"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.smitcoderx.learn.androidci_cd"
