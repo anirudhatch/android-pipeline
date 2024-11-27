@@ -1,0 +1,39 @@
+name: APK Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4.0.0
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-1-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle-1-
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Build App
+        run: ./gradlew build
+
+      - name: Upload App Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Release.apk
+          path: app/build/outputs/apk/release/app-release-unsigned.apk
