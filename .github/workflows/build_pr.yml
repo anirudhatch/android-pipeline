@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew build
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4
         with:
           name: Release.apk
           path: app/build/outputs/apk/release/app-release-unsigned.apk
