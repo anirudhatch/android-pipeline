@@ -14,8 +14,8 @@ jobs:
       - name: Setup Java SDK
         uses: actions/setup-java@v4.0.0
         with:
+          distribution: 'temurin'
           java-version: '21'
-          distribution: 'adopt'
           cache: 'gradle'
 
       - name: Change wrapper permissions
