@@ -38,7 +38,6 @@ jobs:
       - name: Upload Release App
         uses: softprops/action-gh-release@v1
         with:
+          generate_release_notes: true
           name: Release.apk
           files: app/build/outputs/apk/release/app-release-unsigned.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
