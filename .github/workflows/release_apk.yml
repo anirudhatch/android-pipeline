@@ -32,8 +32,8 @@ jobs:
       - name: Build App
         run: ./gradlew build
 
-      - name: Upload App Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Release App
+        uses: softprops/action-gh-release@v1
         with:
           name: Release.apk
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+          files: app/build/outputs/apk/release/app-release-unsigned.apk
