@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidCICDTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    laksjdfaksldjfa
                     Column {
                         Greeting(
                             name = "Test Android CI CD Testing",
